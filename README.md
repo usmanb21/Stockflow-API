@@ -3,6 +3,14 @@
 A containerized ASP.NET Core Web API for managing product inventory.  
 The application runs with SQL Server in Docker using Docker Compose and Entity Framework Core for database access.
 
+## Architecture
+
+Client  
+↓  
+ASP.NET Core API (Docker Container)  
+↓  
+SQL Server Database (Docker Container)
+
 ## Tech Stack
 
 - ASP.NET Core Web API (.NET 8)
