@@ -30,7 +30,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/inventory-api:latest .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/inventory-api:v2 .
 
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/inventory-api:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/inventory-api:v2
