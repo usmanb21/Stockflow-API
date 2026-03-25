@@ -1,8 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Force correct Azure port
+// 🔥 FORCE Azure port correctly
 var port = Environment.GetEnvironmentVariable("WEBSITES_PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(int.Parse(port));
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
