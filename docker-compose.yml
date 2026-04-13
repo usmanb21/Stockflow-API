@@ -4,20 +4,21 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
     container_name: sqlserver
     environment:
+      - SA_PASSWORD=StrongPass123!
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrongPassword123
     ports:
       - "1433:1433"
-
   inventory-api:
     build: .
     container_name: inventory-api
     ports:
-      - "8080:8080"
+      - "8080:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=InventoryDb;User Id=sa;Password=YourStrongPassword123;TrustServerCertificate=True
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=InventoryDb;User Id=sa;Password=StrongPass123!;TrustServerCertificate=True
     depends_on:
-      - sqlserver
+     - sqlserver
+        
