@@ -62,9 +62,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "StockFlow API is running");
-app.MapGet("/health", () => Results.Ok("Healthy"));
-
+app.MapGet("/", () => "StockFlow API is running").AllowAnonymous();
+app.MapGet("/health", () => Results.Ok("Healthy")).AllowAnonymous();
 // ======================
 // Run
 // ======================
