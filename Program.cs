@@ -1,10 +1,11 @@
-using Microsoft.EntityFrameworkCore;
-using inventory_cloud_api.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// ✅ Keep your port binding (DO NOT CHANGE)
+builder.WebHost.UseUrls("http://0.0.0.0:8080");
 
 // ======================
 // Services
@@ -27,15 +28,11 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // ======================
-// Database
+// Authentication (RESTORED)
 // ======================
 
-
-// ======================
-// Authentication
-// ======================
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
 builder.Services.AddAuthorization();
@@ -53,7 +50,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseAuthentication();
+app.UseAuthentication();   // ✅ MUST be before Authorization
 app.UseAuthorization();
 
 // ======================
@@ -62,8 +59,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// ✅ Public endpoints (keep working for Azure health check)
 app.MapGet("/", () => "StockFlow API is running").AllowAnonymous();
 app.MapGet("/health", () => Results.Ok("Healthy")).AllowAnonymous();
+
 // ======================
 // Run
 // ======================
