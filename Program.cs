@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Keep your port binding (DO NOT CHANGE)
+// ✅ KEEP this (Azure container port)
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
 
 // ======================
@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // ======================
-// Swagger (NO OAuth for now)
+// Swagger + JWT Auth
 // ======================
 
 builder.Services.AddSwaggerGen(options =>
@@ -25,10 +25,36 @@ builder.Services.AddSwaggerGen(options =>
         Title = "inventory-cloud-api",
         Version = "v1"
     });
+
+    // 🔐 JWT Auth in Swagger
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter: Bearer {your JWT token}"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
 
 // ======================
-// Authentication (RESTORED)
+// Authentication
 // ======================
 
 builder.Services
@@ -50,7 +76,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseAuthentication();   // ✅ MUST be before Authorization
+app.UseAuthentication();   // ⚠️ MUST be before Authorization
 app.UseAuthorization();
 
 // ======================
@@ -59,7 +85,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// ✅ Public endpoints (keep working for Azure health check)
+// ✅ Public endpoints
 app.MapGet("/", () => "StockFlow API is running").AllowAnonymous();
 app.MapGet("/health", () => Results.Ok("Healthy")).AllowAnonymous();
 
