@@ -1,14 +1,14 @@
 # StockFlow API 🚀
 
-A production-grade ASP.NET Core 8 REST API for managing product inventory, deployed to Microsoft Azure with full CI/CD automation.
+A cloud-native inventory management system with enterprise-grade Azure security, automated CI/CD and scalable Kubernetes infrastructure.
 
-## 🌐 Live Demo
+## 🟢 Live Demo
 
 **Swagger UI:** <https://stockflow-api-prod.azurewebsites.net/swagger>
 
 > Authenticate using your Microsoft account to access the protected endpoints.
 
-## ⚙️ Tech Stack
+## 💻 Tech Stack
 
 |Layer           |Technology                          |
 |----------------|------------------------------------|
@@ -28,17 +28,21 @@ A production-grade ASP.NET Core 8 REST API for managing product inventory, deplo
 
 ```
 GitHub Push
-    ↓
+
+↓
 GitHub Actions CI/CD
-    ↓
+
+↓
 Docker Build & Push → Docker Hub
-    ↓
+
+↓
 Azure App Service (Docker Container)
-    ↓
+
+↓
 Azure SQL Database
 ```
 
-## 📦 API Endpoints
+## 🌐 API Endpoints
 
 |Method|Endpoint          |Description      |Auth      |
 |------|------------------|-----------------|----------|
@@ -60,7 +64,7 @@ Azure SQL Database
 - Serilog structured logging
 - Swagger UI with OAuth2 support
 - Dockerized for consistent deployments
-- Automated CI/CD pipeline — push to main deploys to Azure
+- Automated CI/CD pipeline – push to main deploys to Azure
 
 ## 🚀 CI/CD Pipeline
 
@@ -71,7 +75,7 @@ Every push to `main` automatically:
 1. Pushes to Docker Hub
 1. Deploys to Azure App Service
 
-## 🛠️ Local Development
+## 🖥️ Local Development
 
 ### Prerequisites
 
@@ -94,7 +98,19 @@ dotnet run
 docker-compose up
 ```
 
+## 🏗️ Technical Decisions
+
+|Decision        |Choice               |Why                                             |
+|----------------|---------------------|------------------------------------------------|
+|Auth            |Azure AD OAuth2      |Enterprise standard; avoids managing credentials|
+|Database        |SQL Server on Azure  |ACID compliance for inventory data integrity    |
+|ORM             |Entity Framework Core|Type-safe migrations, avoids raw SQL errors     |
+|Logging         |Serilog              |Structured logs compatible with Azure Monitor   |
+|Containerization|Docker               |Consistent environments across dev and prod     |
+|CI/CD           |GitHub Actions       |Native GitHub integration, no extra tooling     |
+|DB in K8s       |Pod (demo only)      |Production should use Azure SQL Managed Instance|
+
 ## 👤 Author
 
-**Usman**
+**@uUsman**
 [LinkedIn](https://www.linkedin.com/in/usman-zahid-butt-353a9430)
