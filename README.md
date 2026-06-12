@@ -114,5 +114,5 @@ docker-compose up
 
 ## 👤 Author
 
-**@uUsman**
+**@Usman**
 [LinkedIn](https://www.linkedin.com/in/usman-zahid-butt-353a9430)
