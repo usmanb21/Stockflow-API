@@ -115,6 +115,7 @@ Every push to `main` automatically:
 ,,Bash
 
 git clone https://github.com/usmanb21/Stockflow-API.git
+
 cd Stockflow-API
 
 docker compose up -d
