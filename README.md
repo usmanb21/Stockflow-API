@@ -127,7 +127,7 @@ docker-compose up -d
 
 |Decision        |Choice                  |Why                                             |
 |----------------|---------------------   |------------------------------------------------|
-|Auth            |Microsoft EntraID OAuth2 |Enterprise standard; avoids managing credentials|
+|Auth            |Microsoft Entra ID OAuth2 |Enterprise standard; avoids managing credentials|
 |Database        |SQL Server on Azure      |ACID compliance for inventory data integrity   |
 |ORM             |Entity Framework Core    |Type-safe migrations, avoids raw SQL errors    |
 |Logging         |Serilog                  |Structured logs compatible with Azure Monitor  |
