@@ -1,19 +1,26 @@
 # StockFlow API 🚀
 
-A cloud-native inventory management system with enterprise-grade Azure security, automated CI/CD and scalable Kubernetes infrastructure.
+Production-style cloud-native Inventory Management REST API built with ASP.NET Core 8, Microsoft Entra ID, Docker, GitHub Actions CI/CD, Azure App Service, and Azure SQL.
 
-## 🟢 Live Demo
+## 🌐 Live Demo
 
-**Swagger UI:** <https://stockflow-api-prod.azurewebsites.net/swagger>
+🔗 Swagger UI  <https://stockflow-api-prod.azurewebsites.net/swagger>
 
-> Authenticate using your Microsoft account to access the protected endpoints.
+Authenticate using your Microsoft account to test the secured API endpoints.
+
+Public endpoint:
+/health
+
+Protected endpoints:
+/api/products
+           
 
 ## 💻 Tech Stack
 
 |Layer           |Technology                          |
 |----------------|------------------------------------|
 |API             |ASP.NET Core 8                      |
-|Auth            |Azure AD OAuth2 (Microsoft Identity)|
+|Auth            |Microsoft Entra ID (OAuth2)         |
 |Database        |SQL Server on Azure                 |
 |ORM             |Entity Framework Core               |
 |Containerization|Docker                              |
@@ -46,9 +53,9 @@ Azure SQL Database
 
 ## 🌐 API Endpoints
 
-|Method|Endpoint          |Description      |Auth      |
-|------|------------------|-----------------|----------|
-|GET   |/health           |Health check     |Public    |
+|Method|Endpoint          |Description      |Auth       |
+|------|------------------|-----------------|---------- |
+|GET   |/health           |Health check     |Public     |
 |GET   |/api/Products     |Get all products |🔒 Required|
 |POST  |/api/Products     |Create product   |🔒 Required|
 |GET   |/api/Products/{id}|Get product by ID|🔒 Required|
@@ -57,16 +64,29 @@ Azure SQL Database
 
 ## ✅ Features
 
-- Full CRUD REST API
-- Azure AD OAuth2 authentication
-- JWT Bearer token authorization
-- Entity Framework Core migrations
-- Global exception handling middleware
-- Health checks endpoint
-- Serilog structured logging
-- Swagger UI with OAuth2 support
-- Dockerized for consistent deployments
-- Automated CI/CD pipeline – push to main deploys to Azure
+✔ Secure REST API
+
+✔ Microsoft Entra ID Authentication
+
+✔ JWT Bearer Authorization
+
+✔ Entity Framework Core
+
+✔ SQL Server
+
+✔ Docker Containerization
+
+✔ GitHub Actions CI/CD
+
+✔ Azure App Service Deployment
+
+✔ Azure Application Insights
+
+✔ Health Checks
+
+✔ Swagger/OpenAPI
+
+✔ Kubernetes Ready
 
 ## 🚀 CI/CD Pipeline
 
@@ -97,7 +117,7 @@ dotnet run
 ### Run with Docker
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 ## 🏗️ Technical Decisions
