@@ -1,12 +1,13 @@
 # StockFlow API 🚀
 
-Production-style cloud-native Inventory Management REST API built with ASP.NET Core 8, Microsoft Entra ID, Docker, GitHub Actions CI/CD, Azure App Service, and Azure SQL.
-
 ![.NET](https://img.shields.io/badge/.NET-8-blueviolet)
 ![Azure](https://img.shields.io/badge/Azure-App_Service-0078D4)
 ![Docker](https://img.shields.io/badge/Docker-2496ED)
 ![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+Production-style cloud-native Inventory Management REST API built with ASP.NET Core 8, Microsoft Entra ID, Docker, GitHub Actions CI/CD, Azure App Service, and Azure SQL.
+
 
 ## 🌐 Live Demo
 
@@ -71,28 +72,17 @@ Azure SQL Database
 ## ✅ Features
 
 ✔ Secure REST API
-
+✔ Full CRUD Operations
 ✔ Microsoft Entra ID Authentication
-
 ✔ JWT Bearer Authorization
-
 ✔ Entity Framework Core
-
-✔ SQL Server
-
+✔ Azure SQL Database
 ✔ Docker Containerization
-
 ✔ GitHub Actions CI/CD
-
 ✔ Azure App Service Deployment
-
 ✔ Azure Application Insights
-
 ✔ Health Checks
-
-✔ Swagger/OpenAPI
-
-✔ Kubernetes Ready
+✔ Swagger / OpenAPI
 
 ## 🚀 CI/CD Pipeline
 
@@ -105,15 +95,7 @@ Every push to `main` automatically:
 
 ## 🖥️ Local Development
 
-### Prerequisites
-
-- .NET 8 SDK
-- Docker Desktop
-- SQL Server or Docker
-
-### Run locally
-,,Bash
-
+```bash
 git clone https://github.com/usmanb21/Stockflow-API.git
 
 cd Stockflow-API
@@ -123,6 +105,7 @@ docker compose up -d
 dotnet restore
 dotnet build
 dotnet run
+```
 
 ### Run with Docker
 
