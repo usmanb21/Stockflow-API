@@ -2,6 +2,12 @@
 
 Production-style cloud-native Inventory Management REST API built with ASP.NET Core 8, Microsoft Entra ID, Docker, GitHub Actions CI/CD, Azure App Service, and Azure SQL.
 
+![.NET](https://img.shields.io/badge/.NET-8-blueviolet)
+![Azure](https://img.shields.io/badge/Azure-App_Service-0078D4)
+![Docker](https://img.shields.io/badge/Docker-2496ED)
+![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 ## 🌐 Live Demo
 
 🔗 Swagger UI  <https://stockflow-api-prod.azurewebsites.net/swagger>
