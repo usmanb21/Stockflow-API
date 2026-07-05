@@ -106,13 +106,16 @@ Every push to `main` automatically:
 - SQL Server or Docker
 
 ### Run locally
+,,Bash
 
-```bash
 git clone https://github.com/usmanb21/Stockflow-API.git
 cd Stockflow-API
+
+docker compose up -d
+
 dotnet restore
+dotnet build
 dotnet run
-```
 
 ### Run with Docker
 
@@ -122,15 +125,15 @@ docker-compose up -d
 
 ## 🏗️ Technical Decisions
 
-|Decision        |Choice               |Why                                             |
-|----------------|---------------------|------------------------------------------------|
-|Auth            |Azure AD OAuth2      |Enterprise standard; avoids managing credentials|
-|Database        |SQL Server on Azure  |ACID compliance for inventory data integrity    |
-|ORM             |Entity Framework Core|Type-safe migrations, avoids raw SQL errors     |
-|Logging         |Serilog              |Structured logs compatible with Azure Monitor   |
-|Containerization|Docker               |Consistent environments across dev and prod     |
-|CI/CD           |GitHub Actions       |Native GitHub integration, no extra tooling     |
-|DB in K8s       |Pod (demo only)      |Production should use Azure SQL Managed Instance|
+|Decision        |Choice                  |Why                                             |
+|----------------|---------------------   |------------------------------------------------|
+|Auth            |Microsoft EntraID OAuth2 |Enterprise standard; avoids managing credentials|
+|Database        |SQL Server on Azure      |ACID compliance for inventory data integrity   |
+|ORM             |Entity Framework Core    |Type-safe migrations, avoids raw SQL errors    |
+|Logging         |Serilog                  |Structured logs compatible with Azure Monitor  |
+|Containerization|Docker                   |Consistent environments across dev and prod    |
+|CI/CD           |GitHub Actions           |Native GitHub integration, no extra tooling    |
+|DB in K8s       |Pod (demo only)         |Production should use Azure SQL Managed Instance|
 
 ## 👤 Author
 
